@@ -1,0 +1,144 @@
+// ============================================
+// CRAFTERS MARINE - MAIN STYLES
+// ============================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'animations';
+
+// Reset & Base
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: $font-body;
+  font-size: $font-size-body;
+  font-weight: $font-weight-regular;
+  line-height: 1.6;
+  color: $text-primary;
+  background: $ocean-deep;
+  @include smooth-text;
+  overflow-x: hidden;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: $font-size-h1; }
+h2 { font-size: $font-size-h2; }
+h3 { font-size: $font-size-h3; }
+h4 { font-size: $font-size-h4; }
+
+p {
+  color: $text-secondary;
+}
+
+a {
+  color: $ocean-surface;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $foam-white;
+  }
+}
+
+// Utility Classes
+.container {
+  @include container;
+}
+
+.container-narrow {
+  @include container($container-narrow);
+}
+
+.section {
+  @include section-base;
+}
+
+.text-gradient {
+  @include gradient-text;
+}
+
+.glass {
+  @include glass;
+}
+
+// Selection
+::selection {
+  background: rgba($ocean-surface, 0.3);
+  color: $foam-white;
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $ocean-deep;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $ocean-mid;
+  border-radius: $radius-full;
+
+  &:hover {
+    background: $ocean-bright;
+  }
+}
+
+// Focus States
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid $ocean-surface;
+  outline-offset: 2px;
+}
+
+// Image Reset
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Button Reset
+button {
+  @include button-reset;
+}
+
+// List Reset
+ul, ol {
+  list-style: none;
+}
+
+// Lenis Smooth Scroll
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
